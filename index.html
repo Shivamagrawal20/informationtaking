@@ -26,21 +26,25 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             text-align: center;
+            width: 90%;
         }
         h1 {
             font-size: 2em;
             color: #28a745;
             margin-bottom: 20px;
+            word-wrap: break-word;
         }
         .step-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .step {
             background-color: #f0f0f0;
-            padding: 20px;
+            padding: 15px;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -48,11 +52,12 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80px;
-            height: 80px;
-            font-size: 1.5em;
+            width: 60px;
+            height: 60px;
+            font-size: 1.2em;
             color: #666;
             position: relative;
+            flex-shrink: 0;
         }
         .step.completed {
             background-color: #28a745;
@@ -122,9 +127,13 @@
         .weight-input {
             display: flex;
             justify-content: space-between;
+            gap: 10px;
         }
         .weight-input input {
-            width: 48%;
+            width: 60%;
+        }
+        .weight-input select {
+            width: 35%;
         }
         button {
             width: 100%;
@@ -166,9 +175,10 @@
             margin-right: 10px;
         }
         .arrow {
-            margin: 0 10px;
-            font-size: 2em; /* Increased arrow size */
+            margin: 0 5px;
+            font-size: 1.5em;
             color: #666;
+            flex-shrink: 0;
         }
         /* Styling for checkboxes */
         .checkbox-label {
@@ -219,13 +229,99 @@
             border-width: 0 3px 3px 0;
             transform: rotate(45deg);
         }
-        /* Adjustments for responsive design */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .step-container {
-                flex-direction: column;
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
             }
             .step {
+                width: 50px;
+                height: 50px;
+                font-size: 1em;
+            }
+            .arrow {
+                font-size: 1.2em;
+            }
+            input, select {
+                padding: 10px;
+                font-size: 14px;
+            }
+            button {
+                padding: 12px;
+                font-size: 14px;
+            }
+            .meal-plan-item p {
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                margin: 5px;
+                padding: 10px;
+            }
+            .step-container {
+                justify-content: center;
+            }
+            .step {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9em;
+            }
+            .arrow {
+                font-size: 1em;
+            }
+            .weight-input {
+                flex-direction: column;
+            }
+            .weight-input input,
+            .weight-input select {
+                width: 100%;
+            }
+            .meal-plan {
+                padding: 10px;
+            }
+            .meal-plan-item {
+                padding: 10px;
+            }
+        }
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 1.2em;
+            }
+            .step {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8em;
+            }
+            .arrow {
+                font-size: 0.9em;
+            }
+        }
+        /* Landscape mode adjustments */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .container {
+                margin: 5px;
+                padding: 10px;
+            }
+            .step-container {
                 margin-bottom: 10px;
+            }
+            .form-section {
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+        }
+        /* High DPI screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .step {
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            }
+            .meal-plan-item {
+                box-shadow: 0 3px 6px rgba(0,0,0,0.15);
             }
         }
     </style>
